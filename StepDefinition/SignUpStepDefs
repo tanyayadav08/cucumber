@@ -1,0 +1,55 @@
+package stepdefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import pages.SignUpPage;
+
+public class SignUpStepDefs {
+
+    SignUpPage sup = new SignUpPage();
+
+    @Given("User opens the dBank Demo application")
+    public void userOpensDBankDemoApplication() {
+        TestBase.getBrowser();
+    }
+
+    @When("User clicks on Sign Up link")
+    public void userClicksOnSignUpLink() {
+        sup.clickonSignUpHere();
+    }
+
+    @And("User enters the following sign-up details:")
+    public void userEntersSignUpDetails(Map<String, String> userDetails) {
+        sup.enterSignUpDetails(
+            userDetails.get("Title"),
+            userDetails.get("First Name"),
+            userDetails.get("Last Name"),
+            userDetails.get("Date of Birth"),
+            userDetails.get("SSN"),
+            userDetails.get("Email"),
+            userDetails.get("Password"),
+            userDetails.get("Confirm Password"),
+            userDetails.get("Address"),
+            userDetails.get("City"),
+            userDetails.get("State"),
+            userDetails.get("Zip Code"),
+            userDetails.get("Country"),
+            userDetails.get("Mobile"),
+            userDetails.get("Home Phone"),
+            userDetails.get("Work Phone")
+        );
+    }
+
+    @And("User submits the sign-up form")
+    public void userSubmitsSignUpForm() {
+       
+        sup.submitSignUpForm();
+    }
+
+    @Then("User should be successfully registered")
+    public void userShouldBeSuccessfullyRegistered() {
+       
+}
+
