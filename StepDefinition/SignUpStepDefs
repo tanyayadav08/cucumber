@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 
 public class SignUpStepDefs {
 
-    SignUpPage sup = new SignUpPage(); // Assuming this class has appropriate methods for interaction
+    SignUpPage sup = new SignUpPage(); 
 
     @Given("User opens the dBank Demo application")
     public void userOpensDBankDemoApplication() {
@@ -21,7 +21,7 @@ public class SignUpStepDefs {
 
     @When("User clicks on Sign Up link")
     public void userClicksOnSignUpLink() {
-        // Replace the placeholder with the actual locator or XPath for the Sign Up link
+        
         TestBase.driver.findElement(By.xpath("//a[text()='Sign Up']")).click();
     }
 
@@ -49,7 +49,7 @@ public class SignUpStepDefs {
 
     @And("User submits the sign-up form")
     public void userSubmitsSignUpForm() {
-        // Replace the placeholder with the actual locator or XPath for the Submit button
+        
         TestBase.driver.findElement(By.id("submitBtn")).click();
     }
 
