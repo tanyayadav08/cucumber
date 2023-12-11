@@ -5,19 +5,24 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pages.SignUpPage;
+import org.openqa.selenium.By;
+import java.util.Map;
+import static org.junit.Assert.assertTrue;
 
 public class SignUpStepDefs {
 
-    SignUpPage sup = new SignUpPage();
+    SignUpPage sup = new SignUpPage(); // Assuming this class has appropriate methods for interaction
 
     @Given("User opens the dBank Demo application")
     public void userOpensDBankDemoApplication() {
         TestBase.getBrowser();
+        TestBase.driver.get("http://dbankdemo.com/bank");
     }
 
     @When("User clicks on Sign Up link")
     public void userClicksOnSignUpLink() {
-        sup.clickonSignUpHere();
+        // Replace the placeholder with the actual locator or XPath for the Sign Up link
+        TestBase.driver.findElement(By.xpath("//a[text()='Sign Up']")).click();
     }
 
     @And("User enters the following sign-up details:")
@@ -44,12 +49,12 @@ public class SignUpStepDefs {
 
     @And("User submits the sign-up form")
     public void userSubmitsSignUpForm() {
-       
-        sup.submitSignUpForm();
+        // Replace the placeholder with the actual locator or XPath for the Submit button
+        TestBase.driver.findElement(By.id("submitBtn")).click();
     }
 
     @Then("User should be successfully registered")
     public void userShouldBeSuccessfullyRegistered() {
-       
+        assertTrue("User is not registered successfully", sup.isRegistrationSuccessful());
+    }
 }
-
